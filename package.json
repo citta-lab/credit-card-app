@@ -1,0 +1,19 @@
+{
+  "name": "credit-card-app",
+  "version": "1.0.0",
+  "description": "credit card processing application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citta-lab/credit-card-app.git"
+  },
+  "author": "Mahesh S",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/citta-lab/credit-card-app/issues"
+  },
+  "homepage": "https://github.com/citta-lab/credit-card-app#readme"
+}
