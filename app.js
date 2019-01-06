@@ -18,8 +18,6 @@ const summary = require('./src/helper/summaryBuilder');
     let dataStream = [];
     let inputStream;
 
-    console.log("1 userArgs : "+userArgs)
-
     if(userArgs){
         inputStream = readline.createInterface({
             input: fs.createReadStream(userArgs)
