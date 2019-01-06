@@ -1,5 +1,6 @@
 var fs = require('fs');
 var readline = require('readline');
+const chalk = require('chalk');
 
 const parser = require('./src/helper/parserHelper');
 const summary = require('./src/helper/summaryBuilder');
@@ -23,7 +24,7 @@ const summary = require('./src/helper/summaryBuilder');
             input: fs.createReadStream(userArgs)
         });
     }else{
-        console.log('2. STDIN ')
+        console.log(chalk.bold.green("Please input one user value at a time, once done please hit CTRL+C to start the processing and CTRL+Z to exit "));
         inputStream = readline.createInterface({
             input: process.stdin
         })

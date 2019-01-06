@@ -9,7 +9,8 @@ This project assumes that you're using [npm](https://www.npmjs.com/) and [node](
 # Usage: 
 This project is predefined with few scripts to facilitate the easy running / testing the application.
 - `npm start` this will run the application and provide test data from test/data folder.
-- `npm stdin` will run the app and wait for user to provide input.
+- `node app.js fileName.txt` will run with provided txt file data.
+- `node app.js` will run the app and wait for user to provide input.
 - `CTRL C` user can exist from standard input and will run the application with provided data.
 - `CTRL Z` user can exit out of the application.
 - `npm test` can be used to run the test.
