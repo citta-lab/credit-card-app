@@ -1,9 +1,8 @@
 var fs = require('fs');
 var readline = require('readline');
 
-var sortNames = require('./src/helper/sortHelper');
-var parser = require('./src/helper/parserHelper');
-
+const parser = require('./src/helper/parserHelper');
+const summary = require('./src/helper/summaryBuilder');
 
 /**
  * Main entry point for the application which is responsible reading user input.
@@ -11,7 +10,6 @@ var parser = require('./src/helper/parserHelper');
  * Step 2: sort user data alphabetically using helper funtion.
  * Step 3: send sorted data to parser to determine the credit card processing need.
  */
-
 
  let app = function () {
 
@@ -37,12 +35,14 @@ var parser = require('./src/helper/parserHelper');
 
     // called once data has been read completely.
     inputStream.on('close', () => {
-        //dataStream.sort(sortNames);
+
         dataStream.forEach((data) => {
             parser(data);
-        })
-    })
-    
+        });
+
+        // printing the report back using the helper.
+        summary();
+    });  
  }
 
  app();

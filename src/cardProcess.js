@@ -2,9 +2,9 @@ const luhn = require('luhn');
 var store = require('./store');
 
 
-class CardPrcoess {
+class CardProcess {
     
-    constructor(data){
+    constructor(data) {
         this.data = data;
     }
 
@@ -45,8 +45,6 @@ class CardPrcoess {
         if(account && account.cardNumber){
             account.balance = account.balance - remove$(creditAmount);
         }
-
-        console.log(store)
     }
 
     /**
@@ -80,4 +78,4 @@ let validateNumber = function(number){
     return luhn.validate(number) ? number : null;
 }
 
-module.exports = CardPrcoess;
+module.exports = CardProcess;

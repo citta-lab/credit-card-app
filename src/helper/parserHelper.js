@@ -1,4 +1,4 @@
-const CardProcess = require('../cardProcess');
+const CardProcess = require('../CardProcess');
 
 /**
  * Parser function to determine what kind of credit card processing
