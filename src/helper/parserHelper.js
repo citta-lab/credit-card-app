@@ -1,4 +1,5 @@
 const CardProcess = require('../CardProcess');
+var store = require('../store');
 
 /**
  * Parser function to determine what kind of credit card processing
@@ -11,7 +12,7 @@ let parser = function(data) {
     let arr = data.split(' ');
     let action = arr.shift();
 
-    let cardProcess = new CardProcess(arr);
+    let cardProcess = new CardProcess(arr, store);
 
     // determining specific operation based on the action.
     switch (action) {

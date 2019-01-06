@@ -18,11 +18,14 @@ const summary = require('./src/helper/summaryBuilder');
     let dataStream = [];
     let inputStream;
 
+    console.log("1 userArgs : "+userArgs)
+
     if(userArgs){
         inputStream = readline.createInterface({
             input: fs.createReadStream(userArgs)
         });
     }else{
+        console.log('2. STDIN ')
         inputStream = readline.createInterface({
             input: process.stdin
         })
@@ -31,18 +34,31 @@ const summary = require('./src/helper/summaryBuilder');
     // called when the user presses enter or return.
     inputStream.on('line', (input) => {
         dataStream.push(input);
+        console.log("3. data : "+JSON.stringify(dataStream))
     });
 
     // called once data has been read completely.
     inputStream.on('close', () => {
-
-        dataStream.forEach((data) => {
-            parser(data);
-        });
-
-        // printing the report back using the helper.
-        summary();
+        dataProcesser(dataStream);
     });  
+
+    // called when CTRL-C is pressed for STDIN
+    process.on('SIGINT', () => {
+        dataProcesser(dataStream);
+    })
+ }
+
+ /**
+  * helper function to process stream of data called when end of the file is read
+  * or Control C is pressed from the user.
+  */
+ let dataProcesser = (dataStream) => {
+    dataStream.forEach((data) => {
+        parser(data);
+    });
+
+    // printing the report using the helper.
+    summary();
  }
 
  app();

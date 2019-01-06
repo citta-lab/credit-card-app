@@ -1,11 +1,11 @@
 const luhn = require('luhn');
-var store = require('./store');
 
 
 class CardProcess {
     
-    constructor(data) {
+    constructor(data, store) {
         this.data = data;
+        this.store = store;
     }
 
     /**
@@ -24,7 +24,7 @@ class CardProcess {
         let number = this.data.shift();
         let limit = this.data.shift();
 
-        store[name] = { 
+        this.store[name] = { 
             name, 
             cardNumber: validateNumber(number),
             limit: remove$(limit),
@@ -40,8 +40,9 @@ class CardProcess {
         
         let name = this.data.shift();
         let creditAmount = this.data.shift();
-        let account = store[name];
+        let account = this.store[name];
 
+        // making sure account and the account cardNumber is valid
         if(account && account.cardNumber){
             account.balance = account.balance - remove$(creditAmount);
         }
@@ -55,8 +56,9 @@ class CardProcess {
 
         let name = this.data.shift();
         let chargeAmount = this.data.shift();
-        let account = store[name];
+        let account = this.store[name];
 
+        // making sure account and the account cardNumber is valid
         if(account && account.cardNumber){
             //check newbalance over the provided limit 
             let newBalance = account.balance + remove$(chargeAmount);
