@@ -34,7 +34,6 @@ const summary = require('./src/helper/summaryBuilder');
     // called when the user presses enter or return.
     inputStream.on('line', (input) => {
         dataStream.push(input);
-        console.log("3. data : "+JSON.stringify(dataStream))
     });
 
     // called once data has been read completely.
