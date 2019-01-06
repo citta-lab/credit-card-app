@@ -7,13 +7,13 @@ const CardProcess = require('../CardProcess');
  * file
  */
 let parser = function(data) {
-    //split by space to create array of strings.
+    //split by space to create array of strings and use shift to grab the first element.
     let arr = data.split(' ');
     let action = arr.shift();
 
     let cardProcess = new CardProcess(arr);
 
-    // determining specific operation.
+    // determining specific operation based on the action.
     switch (action) {
         case("Add"):
             cardProcess.add();
@@ -25,6 +25,7 @@ let parser = function(data) {
             cardProcess.charge();
             break;
         default:
+            console.info("Couldn't perform any action, please verify data");
             break;
     }
 }

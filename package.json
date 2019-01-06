@@ -4,7 +4,7 @@
   "description": "credit card processing application",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/citta-lab/credit-card-app#readme",
   "dependencies": {
     "luhn": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
   }
 }
