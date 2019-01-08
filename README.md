@@ -32,5 +32,14 @@ Keeping `seperation of concern`, `modularization` and `code repetation` i have d
 
 3. How to run your code and tests, including how to compile it if applicable and
   how to install any dependencies your code may have.
-  - Please refer `Usage` section.
+  3.1 With InputFile:
+  - `node app.js fileName.txt` will run the given file.
+  3.2 With Stdin:
+  - `node app.js` 
+  - `Add Bob 4111111111111111 $1000` enter
+  - `Charge Bob $500` enter
+  - `CTRL + C` to process the data
+  - `CTRL + Z` to end
+
+  more details about the test, usage is explained in Usage section above.  
 
